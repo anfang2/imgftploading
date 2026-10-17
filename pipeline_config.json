@@ -1,0 +1,53 @@
+{
+  "_comment": "=== Vision Inspection & Deblurring Pipeline 설정 파일 ===",
+
+  "watch_folder": "C:/vision/input",
+  "_watch_folder_desc": "Watchdog가 감시할 최상위 폴더 (하위 폴더 포함 재귀 감시)",
+
+  "blur_output_folder": "C:/vision/blur_classified",
+  "_blur_output_desc": "블러 판정(X) 이미지를 복사할 폴더 (파일명 유지)",
+
+  "dl_output_folder": "C:/vision/dl_result",
+  "_dl_output_desc": "딥러닝 복원 결과 이미지를 저장할 폴더",
+
+  "blur_threshold": 80.0,
+  "_threshold_desc": "라플라시안 분산값 임계값 - 이 값 미만이면 블러(X) 판정. 낮을수록 엄격",
+
+  "image_extensions": [".bmp", ".png", ".jpg", ".jpeg", ".tif", ".tiff"],
+  "_ext_desc": "처리할 이미지 확장자 목록",
+
+  "file_stable_wait_sec": 2.0,
+  "_stable_desc": "파일이 완전히 저장될 때까지 대기할 최대 시간(초)",
+
+  "blur_csv_path": "C:/vision/logs/blur_results.csv",
+  "_blur_csv_desc": "블러 분류 결과 CSV 저장 경로",
+
+  "ftp_csv_path": "C:/vision/logs/ftp_results.csv",
+  "_ftp_csv_desc": "FTP 업로드 결과 CSV 저장 경로",
+
+  "model": "none",
+  "_model_desc": "딥러닝 모델 선택: 'nafnet' | 'restormer' | 'eg_restormer' | 'none'(패스스루/복사만)",
+
+  "nafnet_weights": "weights/NAFNet-GoPro-width32.pth",
+  "restormer_weights": "weights/motion_deblurring.pth",
+  "eg_restormer_weights": "weights/egrestormer_gopro.pth",
+
+  "nafnet_source_dir": "models/NAFNet",
+  "restormer_source_dir": "models/Restormer",
+  "eg_restormer_source_dir": "models/EG_Restormer",
+
+  "ftp_host": "192.168.1.100",
+  "ftp_port": 21,
+  "ftp_user": "ftpuser",
+  "ftp_password": "ftppassword",
+  "ftp_remote_dir": "/upload/dl_results",
+  "ftp_timeout_sec": 30,
+  "ftp_retry_count": 3,
+
+  "worker_threads": 2,
+  "_worker_desc": "동시 처리 워커 스레드 수 (GPU 병렬 처리용)",
+
+  "log_level": "INFO",
+  "_log_desc": "로그 레벨: DEBUG | INFO | WARNING | ERROR"
+}
+
